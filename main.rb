@@ -23,7 +23,18 @@
 # name = gets.chomp
 # puts "hi " + name + " fin"
 
-# function to ask for user name and return what his age will be in x-years
-age = gets.chomp.to_i
-added_years = 10
-puts age + added_years
+# # function to ask for user name and return what his age will be in x-years
+# age = gets.chomp.to_i
+# added_years = 10
+# puts age + added_years
+
+# # function to output user name 10 times
+# user = gets.chomp
+# 10.times do
+#   puts user
+# end
+
+# function to ask for user name and user lastname and then print full name
+first_name = gets.chomp
+last_name = gets.chomp
+puts first_name << " " << last_name
