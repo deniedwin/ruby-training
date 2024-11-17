@@ -54,14 +54,24 @@
 # greeting("Bob", {age: 62, city: "New York City"})
 # greeting("Bob", age: 62, city: "New York City")
 
-# function to select only siblings names
-family = {  
-    uncles: ["bob", "joe", "steve"],
-    sisters: ["jane", "jill", "beth"],
-    brothers: ["frank","rob","david"],
-    aunts: ["mary","sally","susan"]
-}
-sis_bro = family.select do |k,v|
-  k === :sisters || k == :brothers
+# # function to select only siblings names
+# family = {  
+#     uncles: ["bob", "joe", "steve"],
+#     sisters: ["jane", "jill", "beth"],
+#     brothers: ["frank","rob","david"],
+#     aunts: ["mary","sally","susan"]
+# }
+# sis_bro = family.select do |k,v|
+#   k === :sisters || k == :brothers
+# end
+# puts sis_bro
+
+# function that pints all the keys, all the values and both
+person = {name: 'Bob', occupation: 'web developer', hobbies: 'painting'}
+puts person.keys
+puts "---"
+puts person.values
+puts "---"
+person.each do |k,v|
+  puts "key: #{k} value: #{v}"
 end
-puts sis_bro
