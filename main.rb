@@ -41,15 +41,27 @@
 
 # optional_parameters.rb
 
-# function to check if the passed hash is empty and outputs a default value
-def greeting(name, options = {})
-  if options.empty?
-    puts "Hi, my name is #{name}"
-  else
-    puts "Hi, my name is #{name} and I'm #{options[:age]}" +
-         " years old and I live in #{options[:city]}."
-  end
+# # function to check if the passed hash is empty and outputs a default value
+# def greeting(name, options = {})
+#   if options.empty?
+#     puts "Hi, my name is #{name}"
+#   else
+#     puts "Hi, my name is #{name} and I'm #{options[:age]}" +
+#          " years old and I live in #{options[:city]}."
+#   end
+# end
+# # greeting("Bob")
+# greeting("Bob", {age: 62, city: "New York City"})
+# greeting("Bob", age: 62, city: "New York City")
+
+# function to select only siblings names
+family = {  
+    uncles: ["bob", "joe", "steve"],
+    sisters: ["jane", "jill", "beth"],
+    brothers: ["frank","rob","david"],
+    aunts: ["mary","sally","susan"]
+}
+sis_bro = family.select do |k,v|
+  k === :sisters || k == :brothers
 end
-# greeting("Bob")
-greeting("Bob", {age: 62, city: "New York City"})
-greeting("Bob", age: 62, city: "New York City")
+puts sis_bro
