@@ -34,7 +34,22 @@
 #   puts user
 # end
 
-# function to ask for user name and user lastname and then print full name
-first_name = gets.chomp
-last_name = gets.chomp
-puts first_name << " " << last_name
+# # function to ask for user name and user lastname and then print full name
+# first_name = gets.chomp
+# last_name = gets.chomp
+# puts first_name << " " << last_name
+
+# optional_parameters.rb
+
+# function to check if the passed hash is empty and outputs a default value
+def greeting(name, options = {})
+  if options.empty?
+    puts "Hi, my name is #{name}"
+  else
+    puts "Hi, my name is #{name} and I'm #{options[:age]}" +
+         " years old and I live in #{options[:city]}."
+  end
+end
+# greeting("Bob")
+greeting("Bob", {age: 62, city: "New York City"})
+greeting("Bob", age: 62, city: "New York City")
