@@ -66,12 +66,46 @@
 # end
 # puts sis_bro
 
-# function that pints all the keys, all the values and both
-person = {name: 'Bob', occupation: 'web developer', hobbies: 'painting'}
-puts person.keys
-puts "---"
-puts person.values
-puts "---"
-person.each do |k,v|
-  puts "key: #{k} value: #{v}"
+# # function that pints all the keys, all the values and both
+# person = {name: 'Bob', occupation: 'web developer', hobbies: 'painting'}
+# puts person.keys
+# puts "---"
+# puts person.values
+# puts "---"
+# person.each do |k,v|
+#   puts "key: #{k} value: #{v}"
+# end
+
+# #function to chain different methods
+# phrase = ["be", "to", "not", "or", "be", "to"]
+# puts phrase.reverse.join(" ").capitalize
+
+# function to check the return key of ruby
+# a = [1, 2, 3]
+
+# def mutate(array)
+#   array.pop
+# end
+
+# p "Before mutate method: #{a}"
+# p mutate(a)
+# p "After mutate method: #{a}"
+
+# def add_three(number)
+#   number + 3
+# end
+
+# returned_value = add_three(4)
+# puts returned_value
+
+# function to call a created method
+def greeting(name)
+  name
 end
+puts greeting("franky")
+
+# funciton to multiply two numbers
+def multiply(a,b)
+  a*b
+end
+puts multiply(7,3)
