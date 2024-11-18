@@ -98,14 +98,25 @@
 # returned_value = add_three(4)
 # puts returned_value
 
-# function to call a created method
-def greeting(name)
-  name
-end
-puts greeting("franky")
+# # function to call a created method
+# def greeting(name)
+#   name
+# end
+# puts greeting("franky")
 
-# funciton to multiply two numbers
-def multiply(a,b)
-  a*b
+# # funciton to multiply two numbers
+# def multiply(a,b)
+#   a*b
+# end
+# puts multiply(7,3)
+
+# function to check if passed string is isogram, that is a word that
+# has no repeating letter
+def isogram?(string)
+  original_length = string.length
+  string_array = string.downcase.split
+  unique_length = string_array.uniq.length
+  original_length == unique_length
 end
-puts multiply(7,3)
+puts isogram?("Odin")
+#=> false
