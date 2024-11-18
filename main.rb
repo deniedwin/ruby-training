@@ -123,7 +123,24 @@
 # puts isogram?("Odin")
 # #=> false
 
-puts "Using puts:"
-puts []
-p "Using p:"
-p []
+# # function to show the difference between puts and p
+# puts "Using puts:"
+# puts []
+# p "Using p:"
+# p []
+
+# function to show how pry-bybug works
+require 'pry-byebug'
+
+def yell_greeting(string)
+  name = string
+
+  binding.pry
+
+  name = name.upcase
+  greeting = "WASSAP, #{name}!"
+  puts greeting
+end
+
+yell_greeting("bob")
+
