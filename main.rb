@@ -110,8 +110,8 @@
 # end
 # puts multiply(7,3)
 
-# function to check if passed string is isogram, that is a word that
-# has no repeating letter
+# # function to check if passed string is isogram, that is a word that
+# # has no repeating letter
 # def isogram?(string)
 #   original_length = string.length
 #   string_array = string.downcase.split("")
@@ -130,12 +130,9 @@
 # p []
 
 # function to show how pry-bybug works
-require 'pry-byebug'
 
 def yell_greeting(string)
   name = string
-
-  binding.pry
 
   name = name.upcase
   greeting = "WASSAP, #{name}!"
