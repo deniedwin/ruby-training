@@ -130,14 +130,16 @@
 # p []
 
 # function to show how pry-bybug works
+# def yell_greeting(string)
+#   name = string
 
-def yell_greeting(string)
-  name = string
+#   name = name.upcase
+#   greeting = "WASSAP, #{name}!"
+#   puts greeting
+# end
 
-  name = name.upcase
-  greeting = "WASSAP, #{name}!"
-  puts greeting
-end
+# yell_greeting("bob")
 
-yell_greeting("bob")
-
+immutable = Array.new(3) { Array.new(2) }
+immutable[0][0] = 1000
+print immutable
