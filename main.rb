@@ -199,29 +199,45 @@
 
 # sparky = GoodDog.new
 
-class GoodDog
-  def initialize(name)
-    @name = name
-  end
-end
+# class GoodDog
+#   def initialize(name)
+#     @name = name
+#   end
+# end
 
-sparky = GoodDog.new("Sparky")
+# sparky = GoodDog.new("Sparky")
 
-class Engine
-  def start
-    puts "engine starting"
-  end
+#composition example
+# class Engine
+#   def start
+#     puts "engine starting"
+#   end
+# end
+
+# class Car
+#   def initialize
+#     @engine = Engine.new #engine instance is created when car is created
+#   end
+  
+#   def start
+#     @engine.start
+#   end
+# end
+
+# my_car = Car.new
+# my_car.start
+
+#aggregation example
+class Passenger
 end
 
 class Car
-  def initialize
-    @engine = Engine.new #engine instance is created when car is created
-  end
-  
-  def start
-    @engine.start
+  def initialize(passengers)
+    @passengers = passengers #passengers are given to car at creation
   end
 end
 
-my_car = Car.new
-my_car.start
+#passengers can exist without a car
+passengers = [Passenger.new, Passenger.new]
+my_car = Car.new(passengers)
+p my_car
