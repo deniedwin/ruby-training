@@ -227,17 +227,31 @@
 # my_car = Car.new
 # my_car.start
 
-#aggregation example
-class Passenger
-end
+# #aggregation example
+# class Passenger
+# end
 
-class Car
-  def initialize(passengers)
-    @passengers = passengers #passengers are given to car at creation
+# class Car
+#   def initialize(passengers)
+#     @passengers = passengers #passengers are given to car at creation
+#   end
+# end
+
+# #passengers can exist without a car
+# passengers = [Passenger.new, Passenger.new]
+# my_car = Car.new(passengers)
+
+#instance methods
+class GoodDog
+  def initialize(name)
+    @name = name
+  end
+  def speak
+    "#{@name} says arf!"
   end
 end
 
-#passengers can exist without a car
-passengers = [Passenger.new, Passenger.new]
-my_car = Car.new(passengers)
-p my_car
+sparky = GoodDog.new("sparky")
+puts sparky.speak
+fido = GoodDog.new("fido")
+puts fido.speak
