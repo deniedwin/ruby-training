@@ -206,3 +206,22 @@ class GoodDog
 end
 
 sparky = GoodDog.new("Sparky")
+
+class Engine
+  def start
+    puts "engine starting"
+  end
+end
+
+class Car
+  def initialize
+    @engine = Engine.new #engine instance is created when car is created
+  end
+  
+  def start
+    @engine.start
+  end
+end
+
+my_car = Car.new
+my_car.start
