@@ -179,3 +179,13 @@ contacts.each do |person, data|
     end
   end
 end
+
+#how to create an object and module example
+module Study
+end
+
+class FirstClass
+  include Study
+end
+
+my_object = FirstClass.new
