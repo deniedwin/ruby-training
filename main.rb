@@ -191,3 +191,18 @@
 # my_object = FirstClass.new
 
 #more examples of classes and objects
+# class GoodDog
+#   def initialize
+#     puts "the object was initialized"
+#   end
+# end
+
+# sparky = GoodDog.new
+
+class GoodDog
+  def initialize(name)
+    @name = name
+  end
+end
+
+sparky = GoodDog.new("Sparky")
