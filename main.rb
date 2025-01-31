@@ -246,6 +246,17 @@ class GoodDog
   def initialize(name)
     @name = name
   end
+
+  # def name    #change from get_name
+  #   @name
+  # end
+
+  # def name=(name)   #changed from set_name
+  #   @name = name
+  # end
+  # above code change to the bellow code:
+  attr_accessor :name
+
   def speak
     "#{@name} says arf!"
   end
@@ -255,3 +266,7 @@ sparky = GoodDog.new("sparky")
 puts sparky.speak
 fido = GoodDog.new("fido")
 puts fido.speak
+puts sparky.name
+sparky.name = "onyx"
+puts sparky.name
+puts sparky.speak
