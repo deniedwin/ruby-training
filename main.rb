@@ -296,3 +296,9 @@ class GoodDog
     "#{name} weighs #{weight} and is #{height} tall."
   end
 end
+
+sparky = GoodDog.new("Sparky", "12 inches", "10 lbs")
+puts sparky.info
+
+sparky.change_info("Onyx", "10 inches", "9 lbs")
+puts sparky.info
