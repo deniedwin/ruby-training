@@ -287,13 +287,13 @@ class GoodDog
   end
 
   def change_info(n, h, w)    # new method to change info if needed
-    @name = n
-    @height = h
-    @weight = w
+    self.name = n
+    self.height = h
+    self.weight = w
   end
 
   def info    # method to print out what the current informaiton is
-    "#{name} weighs #{weight} and is #{height} tall."
+    "#{self.name} weighs #{self.weight} and is #{self.height} tall."
   end
 end
 
