@@ -243,6 +243,8 @@
 
 #instance methods
 class GoodDog
+  attr_accessor :name
+
   def initialize(name)
     @name = name
   end
@@ -255,7 +257,7 @@ class GoodDog
   #   @name = name
   # end
   # above code change to the bellow code:
-  attr_accessor :name
+  # attr_accessor :name
 
   def speak
     "#{@name} says arf!"
