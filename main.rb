@@ -260,15 +260,15 @@ class GoodDog
   # attr_accessor :name
 
   def speak
-    "#{@name} says arf!"
+    "#{name} says arf!"
   end
 end
 
-sparky = GoodDog.new("sparky")
+sparky = GoodDog.new("Sparky")
 puts sparky.speak
-fido = GoodDog.new("fido")
+fido = GoodDog.new("Fido")
 puts fido.speak
 puts sparky.name
-sparky.name = "onyx"
+sparky.name = "Onyx"
 puts sparky.name
 puts sparky.speak
