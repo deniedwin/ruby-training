@@ -241,34 +241,58 @@
 # passengers = [Passenger.new, Passenger.new]
 # my_car = Car.new(passengers)
 
-#instance methods
+# #instance methods
+# class GoodDog
+#   attr_accessor :name
+
+#   def initialize(name)
+#     @name = name
+#   end
+
+#   # def name    #change from get_name
+#   #   @name
+#   # end
+
+#   # def name=(name)   #changed from set_name
+#   #   @name = name
+#   # end
+#   # above code change to the bellow code:
+#   # attr_accessor :name
+
+#   def speak
+#     "#{name} says arf!"
+#   end
+# end
+
+# sparky = GoodDog.new("Sparky")
+# puts sparky.speak
+# fido = GoodDog.new("Fido")
+# puts fido.speak
+# puts sparky.name
+# sparky.name = "Onyx"
+# puts sparky.name
+# puts sparky.speak
+
 class GoodDog
-  attr_accessor :name
+  attr_accessor :name, :height, :weight   # make 3 setter/getter methods
 
-  def initialize(name)
-    @name = name
+  def initialize(n, h, w)   # initialize also needs to change with new @
+    @name = n
+    @height = h
+    @weight = w
   end
-
-  # def name    #change from get_name
-  #   @name
-  # end
-
-  # def name=(name)   #changed from set_name
-  #   @name = name
-  # end
-  # above code change to the bellow code:
-  # attr_accessor :name
 
   def speak
     "#{name} says arf!"
   end
-end
 
-sparky = GoodDog.new("Sparky")
-puts sparky.speak
-fido = GoodDog.new("Fido")
-puts fido.speak
-puts sparky.name
-sparky.name = "Onyx"
-puts sparky.name
-puts sparky.speak
+  def change_info(n, h, w)    # new method to change info if needed
+    @name = n
+    @height = h
+    @weight = w
+  end
+
+  def info    # method to print out what the current informaiton is
+    "#{name} weighs #{weight} and is #{height} tall."
+  end
+end
