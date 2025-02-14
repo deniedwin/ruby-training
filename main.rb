@@ -273,32 +273,79 @@
 # puts sparky.name
 # puts sparky.speak
 
-class GoodDog
-  attr_accessor :name, :height, :weight   # make 3 setter/getter methods
+# class GoodDog
+#   attr_accessor :name, :height, :weight   # make 3 setter/getter methods
 
-  def initialize(n, h, w)   # initialize also needs to change with new @
-    @name = n
-    @height = h
-    @weight = w
+#   def initialize(n, h, w)   # initialize also needs to change with new @
+#     @name = n
+#     @height = h
+#     @weight = w
+#   end
+
+#   def speak
+#     "#{name} says arf!"
+#   end
+
+#   def change_info(n, h, w)    # new method to change info if needed
+#     self.name = n
+#     self.height = h
+#     self.weight = w
+#   end
+
+#   def info    # method to print out what the current informaiton is
+#     "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+#   end
+# end
+
+# sparky = GoodDog.new("Sparky", "12 inches", "10 lbs")
+# puts sparky.info
+
+# sparky.change_info("Onyx", "10 inches", "9 lbs")
+# puts sparky.info
+
+class MyCar
+  attr_reader :year, :color, :model
+  attr_accessor :speed
+
+  def initialize(y, c, m)
+    @year = y
+    @color = c
+    @model = m
+    @speed = 0
   end
 
-  def speak
-    "#{name} says arf!"
+  def speed_up(number)
+    self.speed += number
   end
 
-  def change_info(n, h, w)    # new method to change info if needed
-    self.name = n
-    self.height = h
-    self.weight = w
+  def brake(number)
+    self.speed -= number
   end
 
-  def info    # method to print out what the current informaiton is
-    "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+  def current_speed
+    self.speed
   end
+
+  def shut_down
+    self.speed = 0
+  end
+
+  def info
+    "year: #{self.year} color: #{self.color} model: #{self.model}"
+  end
+
 end
 
-sparky = GoodDog.new("Sparky", "12 inches", "10 lbs")
-puts sparky.info
+bavaria = MyCar.new("1973", "blue", "m3")
+puts bavaria.info
 
-sparky.change_info("Onyx", "10 inches", "9 lbs")
-puts sparky.info
+bavaria.speed_up(90)
+puts "current speed: #{bavaria.current_speed}"
+bavaria.speed_up(30)
+puts "current speed: #{bavaria.current_speed}"
+bavaria.brake(60)
+puts "current speed: #{bavaria.current_speed}"
+bavaria.brake(30)
+puts "current speed: #{bavaria.current_speed}"
+bavaria.shut_down
+puts "current speed: #{bavaria.current_speed}"
