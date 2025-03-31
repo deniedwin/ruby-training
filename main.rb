@@ -338,6 +338,14 @@
 #     self.color = color
 #   end
 
+#   def self.gas_mileage(gallons, miles)
+#     puts "car has #{miles/gallons} miles/gallons"
+#   end
+
+#   def to_s
+#     "color: #{self.color}, year: #{self.year}, model: #{self.model}"
+#   end
+
 # end
 
 # bavaria = MyCar.new("1973", "blue", "m3")
@@ -357,25 +365,54 @@
 # puts bavaria.color
 # bavaria.spray_paint("black")
 # puts bavaria.color
+# MyCar.gas_mileage(13,351)
 
-#code to explore what self. does
+# puts bavaria
 
-class GoodDog
-  attr_accessor :name, :height, :weight
+# #code to explore what self. does
+# class GoodDog
+#   attr_accessor :name, :height, :weight
 
-  def initialize(n, h, w)
-    self.name   = n
-    self.height = h
-    self.weight = w
-  end
+#   def initialize(n, h, w)
+#     self.name   = n
+#     self.height = h
+#     self.weight = w
+#   end
 
-  def change_info(n, h, w)
-    self.name   = n
-    self.height = h
-    self.weight = w
-  end
+#   def change_info(n, h, w)
+#     self.name   = n
+#     self.height = h
+#     self.weight = w
+#   end
 
-  def info
-    "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+#   def info
+#     "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+#   end
+
+#   def what_is_self
+#     self
+#   end
+
+#   puts self
+# end
+
+# sparky = GoodDog.new("Sparky", "12 inches", "10 lbs")
+# # p sparky.what_is_self
+
+#class inheritance examples
+class Animal
+  def speak
+    "Hello!"
   end
 end
+
+class GoodDog < Animal
+end
+
+class Cat < Animal
+end
+
+sparky = GoodDog.new
+paws = Cat.new
+puts sparky.speak
+puts paws.speak
