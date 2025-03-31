@@ -303,49 +303,79 @@
 # sparky.change_info("Onyx", "10 inches", "9 lbs")
 # puts sparky.info
 
-class MyCar
-  attr_reader :year, :color, :model
-  attr_accessor :speed
+# class MyCar
+#   attr_reader :year, :model
+#   attr_accessor :speed, :color
 
-  def initialize(y, c, m)
-    @year = y
-    @color = c
-    @model = m
-    @speed = 0
+#   def initialize(y, c, m)
+#     @year = y
+#     @color = c
+#     @model = m
+#     @speed = 0
+#   end
+
+#   def speed_up(number)
+#     self.speed += number
+#   end
+
+#   def brake(number)
+#     self.speed -= number
+#   end
+
+#   def current_speed
+#     self.speed
+#   end
+
+#   def shut_down
+#     self.speed = 0
+#   end
+
+#   def info
+#     "year: #{self.year} color: #{self.color} model: #{self.model}"
+#   end
+
+#   def spray_paint(color)
+#     self.color = color
+#   end
+
+# end
+
+# bavaria = MyCar.new("1973", "blue", "m3")
+# puts bavaria.info
+
+# bavaria.speed_up(90)
+# puts "current speed: #{bavaria.current_speed}"
+# bavaria.speed_up(30)
+# puts "current speed: #{bavaria.current_speed}"
+# bavaria.brake(60)
+# puts "current speed: #{bavaria.current_speed}"
+# bavaria.brake(30)
+# puts "current speed: #{bavaria.current_speed}"
+# bavaria.shut_down
+# puts "current speed: #{bavaria.current_speed}"
+
+# puts bavaria.color
+# bavaria.spray_paint("black")
+# puts bavaria.color
+
+#code to explore what self. does
+
+class GoodDog
+  attr_accessor :name, :height, :weight
+
+  def initialize(n, h, w)
+    self.name   = n
+    self.height = h
+    self.weight = w
   end
 
-  def speed_up(number)
-    self.speed += number
-  end
-
-  def brake(number)
-    self.speed -= number
-  end
-
-  def current_speed
-    self.speed
-  end
-
-  def shut_down
-    self.speed = 0
+  def change_info(n, h, w)
+    self.name   = n
+    self.height = h
+    self.weight = w
   end
 
   def info
-    "year: #{self.year} color: #{self.color} model: #{self.model}"
+    "#{self.name} weighs #{self.weight} and is #{self.height} tall."
   end
-
 end
-
-bavaria = MyCar.new("1973", "blue", "m3")
-puts bavaria.info
-
-bavaria.speed_up(90)
-puts "current speed: #{bavaria.current_speed}"
-bavaria.speed_up(30)
-puts "current speed: #{bavaria.current_speed}"
-bavaria.brake(60)
-puts "current speed: #{bavaria.current_speed}"
-bavaria.brake(30)
-puts "current speed: #{bavaria.current_speed}"
-bavaria.shut_down
-puts "current speed: #{bavaria.current_speed}"
