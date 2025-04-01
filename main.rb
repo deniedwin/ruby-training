@@ -399,20 +399,157 @@
 # sparky = GoodDog.new("Sparky", "12 inches", "10 lbs")
 # # p sparky.what_is_self
 
-#class inheritance examples
-class Animal
-  def speak
-    "Hello!"
+# #class inheritance examples
+# class Animal
+#   def speak
+#     "Hello!"
+#   end
+# end
+
+# class GoodDog < Animal
+# end
+
+# class Cat < Animal
+# end
+
+# sparky = GoodDog.new
+# paws = Cat.new
+# puts sparky.speak
+# puts paws.speak
+
+# #private methods
+# class GoodDog
+#   DOG_YEARS = 7
+
+#   attr_accessor :name, :age
+
+#   def initialize(n, a)
+#     self.name = n
+#     self.age = a
+#   end
+
+#   def public_disclosure
+#     "#{self.name} in human years is #{human_years}"
+#   end
+
+#   private
+
+#   def human_years
+#     age * DOG_YEARS
+#   end
+
+# end
+
+# sparky = GoodDog.new("Sparky", 4)
+# puts sparky.public_disclosure
+
+#inheritance exercises
+
+class Vehicle
+  attr_accessor :color
+  attr_reader :year, :model
+
+  @@number_of_vehicles = 0
+
+  def self.gas_mileage(gal, mile)
+    puts "#{mile/gal} miles per gallon of gas"
+  end
+
+  def initialize(year, model, color)
+    @year = year
+    @model = model
+    @color = color
+    @current_speed = 0
+    @@number_of_vehicles += 1
+  end
+
+  def self.number_of_vehicles
+    @@number_of_vehicles
+  end
+
+  def speed_up(number)
+    @current_speed += number
+    puts "you speed up with #{number} mph"
+  end
+
+  def brake(number)
+    @current_speed -= number
+    puts "you brake speed with #{number} mph"
+  end
+
+  def current_speed
+    puts "current speed is #{@current_speed} mph"
+  end
+
+  def shut_down
+    @current_speed = 0
+    puts "engine off"
+  end
+
+  def spray_paint(color)
+    self.color = color
+    puts "your new color is: #{color}"
+  end
+
+  def age
+    "the vehicle age: #{calculate_age}"
+  end
+
+  private
+
+  def calculate_age
+    Time.now.year - self.year.to_i
   end
 end
 
-class GoodDog < Animal
+module Towable
+  def can_tow?(weight)
+    weight < 1000
+  end
 end
 
-class Cat < Animal
+class MyCar < Vehicle
+  BRAND = "toyota"
+  def to_s
+    "the car has; color: #{color}, year: #{year}, model: #{model}"
+  end
 end
 
-sparky = GoodDog.new
-paws = Cat.new
-puts sparky.speak
-puts paws.speak
+class MyTruck < Vehicle
+  BRAND = "honda"
+  include Towable
+  def to_s
+    "the truck has; color: #{color}, year: #{year}, model: #{model}"
+  end 
+end
+
+# my_car = MyCar.new("2005", "corola", "yellow")
+# my_truck = MyTruck.new("1950", "civic", "grey")
+
+# my_car.speed_up(60)
+# my_car.current_speed
+
+# my_truck.spray_paint("silver")
+# puts my_truck.to_s
+
+# puts my_truck.age
+
+class Student
+  def initialize(name, grade)
+    @name = name
+    @grade = grade
+  end
+
+  def better_grade_than?(other_stu)
+    grade > other_stu.grade
+  end
+
+  protected
+  attr_accessor :grade
+end
+
+joe = Student.new("joe", 93)
+bob = Student.new("bob", 80)
+
+puts joe.better_grade_than?(bob)
+puts joe.grade
