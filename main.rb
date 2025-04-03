@@ -445,83 +445,83 @@
 
 #inheritance exercises
 
-class Vehicle
-  attr_accessor :color
-  attr_reader :year, :model
+# class Vehicle
+#   attr_accessor :color
+#   attr_reader :year, :model
 
-  @@number_of_vehicles = 0
+#   @@number_of_vehicles = 0
 
-  def self.gas_mileage(gal, mile)
-    puts "#{mile/gal} miles per gallon of gas"
-  end
+#   def self.gas_mileage(gal, mile)
+#     puts "#{mile/gal} miles per gallon of gas"
+#   end
 
-  def initialize(year, model, color)
-    @year = year
-    @model = model
-    @color = color
-    @current_speed = 0
-    @@number_of_vehicles += 1
-  end
+#   def initialize(year, model, color)
+#     @year = year
+#     @model = model
+#     @color = color
+#     @current_speed = 0
+#     @@number_of_vehicles += 1
+#   end
 
-  def self.number_of_vehicles
-    @@number_of_vehicles
-  end
+#   def self.number_of_vehicles
+#     @@number_of_vehicles
+#   end
 
-  def speed_up(number)
-    @current_speed += number
-    puts "you speed up with #{number} mph"
-  end
+#   def speed_up(number)
+#     @current_speed += number
+#     puts "you speed up with #{number} mph"
+#   end
 
-  def brake(number)
-    @current_speed -= number
-    puts "you brake speed with #{number} mph"
-  end
+#   def brake(number)
+#     @current_speed -= number
+#     puts "you brake speed with #{number} mph"
+#   end
 
-  def current_speed
-    puts "current speed is #{@current_speed} mph"
-  end
+#   def current_speed
+#     puts "current speed is #{@current_speed} mph"
+#   end
 
-  def shut_down
-    @current_speed = 0
-    puts "engine off"
-  end
+#   def shut_down
+#     @current_speed = 0
+#     puts "engine off"
+#   end
 
-  def spray_paint(color)
-    self.color = color
-    puts "your new color is: #{color}"
-  end
+#   def spray_paint(color)
+#     self.color = color
+#     puts "your new color is: #{color}"
+#   end
 
-  def age
-    "the vehicle age: #{calculate_age}"
-  end
+#   def age
+#     "the vehicle age: #{calculate_age}"
+#   end
 
-  private
+#   private
 
-  def calculate_age
-    Time.now.year - self.year.to_i
-  end
-end
+#   def calculate_age
+#     Time.now.year - self.year.to_i
+#   end
+# end
 
-module Towable
-  def can_tow?(weight)
-    weight < 1000
-  end
-end
+# module Towable
+#   def can_tow?(weight)
+#     weight < 1000
+#   end
+# end
 
-class MyCar < Vehicle
-  BRAND = "toyota"
-  def to_s
-    "the car has; color: #{color}, year: #{year}, model: #{model}"
-  end
-end
+# class MyCar < Vehicle
+#   BRAND = "toyota"
+#   def to_s
+#     "the car has; color: #{color}, year: #{year}, model: #{model}"
+#   end
+# end
 
-class MyTruck < Vehicle
-  BRAND = "honda"
-  include Towable
-  def to_s
-    "the truck has; color: #{color}, year: #{year}, model: #{model}"
-  end 
-end
+# class MyTruck < Vehicle
+#   BRAND = "honda"
+#   include Towable
+#   def to_s
+#     "the truck has; color: #{color}, year: #{year}, model: #{model}"
+#   end 
+# end
 
 # my_car = MyCar.new("2005", "corola", "yellow")
 # my_truck = MyTruck.new("1950", "civic", "grey")
@@ -534,31 +534,52 @@ end
 
 # puts my_truck.age
 
-class Student
-  def initialize(name, grade)
-    @name = name
-    @grade = grade
-  end
+# class Student
+#   def initialize(name, grade)
+#     @name = name
+#     @grade = grade
+#   end
 
-  def better_grade_than?(other_stu)
-    grade > other_stu.grade
-  end
+#   def better_grade_than?(other_stu)
+#     grade > other_stu.grade
+#   end
 
-  protected
-  attr_accessor :grade
-end
+#   protected
+#   attr_accessor :grade
+# end
 
-joe = Student.new("joe", 93)
-bob = Student.new("bob", 80)
+# joe = Student.new("joe", 93)
+# bob = Student.new("bob", 80)
 
-puts joe.better_grade_than?(bob)
-puts joe.grade
+# puts joe.better_grade_than?(bob)
+# puts joe.grade
 
 class Cinema
   attr_accessor :name, :location
+
   def initialize(name, location)
     @name = name
     @location = location
     @movies = []
   end
+
+  def add_movie(movie)
+    @movies << movie
+    movie.cinema = self
+  end
 end
+
+class Movie
+  attr_accessor :title, :showtime, :cinema
+  @@all = []
+
+  def initialize(title, showtime)
+    @title = title
+    @showtime = showtime
+    @@all << self
+  end
+end
+
+# cobble_hill = Cinema.new("cobble", "fd rooseveltweg")
+# spider_man = Movie.new("spider man", "9:00")
+# cobble_hill.add_movie(spider_man)
