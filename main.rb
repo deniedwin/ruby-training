@@ -553,3 +553,12 @@ bob = Student.new("bob", 80)
 
 puts joe.better_grade_than?(bob)
 puts joe.grade
+
+class Cinema
+  attr_accessor :name, :location
+  def initialize(name, location)
+    @name = name
+    @location = location
+    @movies = []
+  end
+end
