@@ -554,32 +554,81 @@
 # puts joe.better_grade_than?(bob)
 # puts joe.grade
 
-class Cinema
-  attr_accessor :name, :location
+# class Cinema
+#   attr_accessor :name, :location
 
-  def initialize(name, location)
-    @name = name
-    @location = location
-    @movies = []
-  end
+#   def initialize(name, location)
+#     @name = name
+#     @location = location
+#     @movies = []
+#   end
 
-  def add_movie(movie)
-    @movies << movie
-    movie.cinema = self
-  end
-end
+#   def add_movie(movie)
+#     @movies << movie
+#     movie.cinema = self
+#   end
+# end
 
-class Movie
-  attr_accessor :title, :showtime, :cinema
-  @@all = []
+# class Movie
+#   attr_accessor :title, :showtime, :cinema
+#   @@all = []
 
-  def initialize(title, showtime)
-    @title = title
-    @showtime = showtime
-    @@all << self
-  end
-end
+#   def initialize(title, showtime)
+#     @title = title
+#     @showtime = showtime
+#     @@all << self
+#   end
+# end
 
 # cobble_hill = Cinema.new("cobble", "fd rooseveltweg")
 # spider_man = Movie.new("spider man", "9:00")
 # cobble_hill.add_movie(spider_man)
+
+# #code to check flow of error handling
+# for i in 'A'..'C'
+#   retries = 2
+#   begin
+#     puts "Executing command #{i}"
+#     raise "Exception: #{i}"
+#   rescue Exception=>e
+#     puts "\tCaught: #{e}"
+#     if retries > 0
+#       puts "\tTrying #{retries} more times\n"
+#       retries -= 1
+#       sleep 2
+#       puts "---"
+#       retry
+#     end  
+#   end
+# end
+
+#code to load wikipedia pages and what to do when an error occurs
+require 'open-uri'
+remote_base_url = "http://en.wikipedia.org/wiki"
+
+[1900, 1910, 'xj3490', 2000].each do |yr|
+ 
+ retries = 3
+ 
+ begin
+   url = "#{remote_base_url}/#{yr}"
+   puts "Getting page #{url}"
+   rpage = URI.open(url) # <-- FIXED
+ rescue StandardError=>e
+   puts "\tError: #{e}"
+   if retries > 0
+       puts "\tTrying #{retries} more times"
+       retries -= 1
+       sleep 1
+       retry
+   else
+       puts "\t\tCan't get #{yr}, so moving on"
+   end    
+ else
+   puts "\tGot page for #{yr}"
+ ensure   
+   puts "Ensure branch; sleeping"
+   sleep 1
+
+ end
+end
