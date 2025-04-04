@@ -602,33 +602,95 @@
 #   end
 # end
 
-#code to load wikipedia pages and what to do when an error occurs
-require 'open-uri'
-remote_base_url = "http://en.wikipedia.org/wiki"
+# #code to load wikipedia pages and what to do when an error occurs
+# require 'open-uri'
+# remote_base_url = "http://en.wikipedia.org/wiki"
 
-[1900, 1910, 'xj3490', 2000].each do |yr|
+# [1900, 1910, 'xj3490', 2000].each do |yr|
  
- retries = 3
+#  retries = 3
  
- begin
-   url = "#{remote_base_url}/#{yr}"
-   puts "Getting page #{url}"
-   rpage = URI.open(url) # <-- FIXED
- rescue StandardError=>e
-   puts "\tError: #{e}"
-   if retries > 0
-       puts "\tTrying #{retries} more times"
-       retries -= 1
-       sleep 1
-       retry
-   else
-       puts "\t\tCan't get #{yr}, so moving on"
-   end    
- else
-   puts "\tGot page for #{yr}"
- ensure   
-   puts "Ensure branch; sleeping"
-   sleep 1
+#  begin
+#    url = "#{remote_base_url}/#{yr}"
+#    puts "Getting page #{url}"
+#    rpage = URI.open(url) # <-- FIXED
+#  rescue StandardError=>e
+#    puts "\tError: #{e}"
+#    if retries > 0
+#        puts "\tTrying #{retries} more times"
+#        retries -= 1
+#        sleep 1
+#        retry
+#    else
+#        puts "\t\tCan't get #{yr}, so moving on"
+#    end    
+#  else
+#    puts "\tGot page for #{yr}"
+#  ensure   
+#    puts "Ensure branch; sleeping"
+#    sleep 1
 
- end
+#  end
+# end
+
+#training of classes, modules and methods
+
+class BaseballPlayer
+  def initialize(hits, walks, at_bats)
+    @hits = hits
+    @walks = walks
+    @at_bats = at_bats
+  end
+
+  def batting_average
+    (@hits.to_f/@at_bats)
+  end
+
+  def on_base_percentage
+    ((@hits + @walks).to_f/@at_bats)
+  end
 end
+
+david = BaseballPlayer.new(10,5,2)
+puts david.batting_average
+puts david.on_base_percentage
+
+class Person
+  def initialize(first_name, last_name)
+    @first_name = first_name
+    @last_name = last_name
+  end
+
+  def first_name
+    @first_name
+  end
+
+  def last_name
+    @last_name
+  end
+
+  def full_name
+    "full name: #{@first_name} #{@last_name}"
+  end
+end
+
+santi = Person.new("santiago", "de compostela")
+puts santi.first_name
+puts santi.last_name
+puts santi.full_name
+
+module MathHelper
+  def exponent(a,b)
+    a**b
+  end
+end
+
+class Calculator
+  include MathHelper
+  def square_root(c)
+    exponent(c,0.5)
+  end
+end
+
+homework = Calculator.new()
+puts homework.square_root(9)
