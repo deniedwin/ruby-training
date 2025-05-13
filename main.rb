@@ -635,62 +635,128 @@
 
 #training of classes, modules and methods
 
-class BaseballPlayer
-  def initialize(hits, walks, at_bats)
-    @hits = hits
-    @walks = walks
-    @at_bats = at_bats
-  end
+# class BaseballPlayer
+#   def initialize(hits, walks, at_bats)
+#     @hits = hits
+#     @walks = walks
+#     @at_bats = at_bats
+#   end
 
-  def batting_average
-    (@hits.to_f/@at_bats)
-  end
+#   def batting_average
+#     (@hits.to_f/@at_bats)
+#   end
 
-  def on_base_percentage
-    ((@hits + @walks).to_f/@at_bats)
-  end
-end
+#   def on_base_percentage
+#     ((@hits + @walks).to_f/@at_bats)
+#   end
+# end
 
-david = BaseballPlayer.new(10,5,2)
-puts david.batting_average
-puts david.on_base_percentage
+# david = BaseballPlayer.new(10,5,2)
+# puts david.batting_average
+# puts david.on_base_percentage
 
-class Person
-  def initialize(first_name, last_name)
-    @first_name = first_name
-    @last_name = last_name
-  end
+# class Person
+#   def initialize(first_name, last_name)
+#     @first_name = first_name
+#     @last_name = last_name
+#   end
 
-  def first_name
-    @first_name
-  end
+#   def first_name
+#     @first_name
+#   end
 
-  def last_name
-    @last_name
-  end
+#   def last_name
+#     @last_name
+#   end
 
-  def full_name
-    "full name: #{@first_name} #{@last_name}"
-  end
-end
+#   def full_name
+#     "full name: #{@first_name} #{@last_name}"
+#   end
+# end
 
-santi = Person.new("santiago", "de compostela")
-puts santi.first_name
-puts santi.last_name
-puts santi.full_name
+# santi = Person.new("santiago", "de compostela")
+# puts santi.first_name
+# puts santi.last_name
+# puts santi.full_name
 
-module MathHelper
-  def exponent(a,b)
-    a**b
-  end
-end
+# module MathHelper
+#   def exponent(a,b)
+#     a**b
+#   end
+# end
 
-class Calculator
-  include MathHelper
-  def square_root(c)
-    exponent(c,0.5)
-  end
-end
+# class Calculator
+#   include MathHelper
+#   def square_root(c)
+#     exponent(c,0.5)
+#   end
+# end
 
-homework = Calculator.new()
-puts homework.square_root(9)
+# homework = Calculator.new()
+# puts homework.square_root(9)
+
+# work with File and IO kernel functions
+# f = File.open('output.txt', 'w')
+# f.puts 'the ruby tutorial'
+# f.close
+
+# File.open('langs.txt', 'w') do |f|
+#   f.puts 'Ruby'
+#   f.write "java\n"
+#   f << "python\n"
+# end
+
+# how to create a file and rename it
+# puts File.exist? 'tempfile'
+
+# f = File.new 'tempfile', 'w'
+# puts File.mtime 'tempfile'
+# puts f.size
+
+# File.rename 'tempfile', 'tempfile2'
+
+# f.close
+
+# how to read items from a text file
+# f = File.open('stones.txt')
+
+# while line = f.gets do
+#   puts line
+# end
+
+# f.close
+
+# how to read data from a file and output it as string
+# fname = 'alllines.rb'
+
+# File.readlines(fname).each do |line|
+#     puts line
+# end
+
+# working with directories class Dir
+# basically create a new folder 'tmp', jump to that folder
+# return to parent folder and delete 'tmp' folder
+
+# Dir.mkdir "tmp"
+# puts Dir.exist? "tmp"
+
+# puts Dir.pwd
+# Dir.chdir "tmp"
+# puts Dir.pwd
+
+# Dir.chdir '..'
+# puts Dir.pwd
+# Dir.rmdir "tmp"
+# puts Dir.exist? "tmp"
+
+# output all the files in this the directory
+# fls = Dir.entries '.'
+# puts fls.inspect
+
+# shows the current directory
+# puts Dir.home
+# puts Dir.home 'root'
+
+# executing external programs
+data = system 'ls'
+puts data
