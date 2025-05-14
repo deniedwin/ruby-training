@@ -757,6 +757,33 @@
 # puts Dir.home
 # puts Dir.home 'root'
 
-# executing external programs
-data = system 'ls'
-puts data
+# # executing external programs
+# data = system 'ls'
+# puts data
+
+# # run external programs in Ruby
+# out = `pwd`
+# puts out
+
+# out = %x[uptime]
+# puts out
+
+# out = %x[ls | grep 'readline']
+# puts out
+
+# f = open("|ls -l |head -3")
+# out = f.read
+# puts out
+# f.close
+
+# puts $?.success?
+
+$stdout = File.open "output.log", "a"
+
+puts "Ruby"
+puts "Java"
+
+$stdout.close
+$stdout = STDOUT
+
+puts "Python"
